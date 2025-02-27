@@ -437,13 +437,14 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import '../App.css';
 
 const MartDashboard = () => {
   const [reservations, setReservations] = useState([]);
   const [expiringProducts, setExpiringProducts] = useState([]);
   const [completedSales, setCompletedSales] = useState([]);
+  const { martId } = useParams();
 
   useEffect(() => {
     // Mock data fetching
@@ -472,9 +473,10 @@ const MartDashboard = () => {
         <h3>마트 관리</h3>
         <ul>
           <li><Link to="/dashboard">메인 화면</Link></li>
-          <li><Link to="/mart">나의 마트</Link></li>
-          <li><Link to="/register">상품 등록</Link></li>
-          <li><Link to="/sales">판매 내역 확인</Link></li>
+          <li><Link to={`/mart/${martId}/info`}>나의 마트</Link></li>
+          <li><Link to={`/mart/${martId}/check`}>등록 상품 확인</Link></li>
+          <li><Link to={`/mart/${martId}/register`}>상품 등록</Link></li>
+          <li><Link to={`/mart/${martId}/sales`}>판매 내역 확인</Link></li>
         </ul>
       </aside>
       <main className="main-content">
