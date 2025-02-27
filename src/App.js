@@ -56,6 +56,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import MainDashboard from './pages/MainDashboard';
 import MartDashboard from './pages/MartDashboard';
+import MyMartPage from './pages/MyMartPage';
+import ProductCheckPage from './pages/ProductCheckPage';
+import ProductRegistrationPage from './pages/ProductRegistrationPage';
+import CheckSalesHistoryPage from './pages/CheckSalesHistoryPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -69,6 +73,10 @@ const App = () => {
         <Route path="/" element={<LoginPage setIsAuthenticated={setIsAuthenticated} />} />
         <Route path="/dashboard" element={<MainDashboard />} />
         <Route path="/mart/:martId" element={<MartDashboard />} />
+        <Route path="/mart/:martId/info" element={<MyMartPage />} />
+        <Route path="/mart/:martId/check" element={<ProductCheckPage />} />
+        <Route path="/mart/:martId/register" element={<ProductRegistrationPage />} />
+        <Route path="/mart/:martId/sales" element={<CheckSalesHistoryPage />} />
       </Routes>
       <Footer />
     </Router>
