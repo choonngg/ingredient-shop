@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import '../styles/CheckSalesHistoryPage.css';
+import styles from '../styles/CheckSalesHistoryPage.module.css';
 
 const CheckSalesHistoryPage = () => {
   const [salesData, setSalesData] = useState([]);
@@ -117,8 +117,8 @@ const CheckSalesHistoryPage = () => {
   };
 
   return (
-    <div className="mart-dashboard-container">
-      <aside className="sidebar">
+    <div className={styles["mart-dashboard-container"]}>
+      <aside className={styles["sidebar"]}>
         <h3>마트 관리</h3>
         <ul>
           <li><Link to="/dashboard">메인 화면</Link></li>
@@ -128,11 +128,11 @@ const CheckSalesHistoryPage = () => {
           <li><Link to={`/mart/${martId}/sales`}>판매 내역 확인</Link></li>
         </ul>
       </aside>
-      <main className="main-content">
-        <div className="sales-history-container">
+      <main className={styles["main-content"]}>
+        <div className={styles["sales-history-container"]}>
           <h2>판매 내역 확인</h2>
-          <div className="table-container">
-            <table className="sales-table">
+          <div className={styles["table-container"]}>
+            <table className={styles["sales-table"]}>
               <thead>
                 <tr>
                   <th>상품이미지</th>
@@ -148,7 +148,7 @@ const CheckSalesHistoryPage = () => {
                 {salesData.map((sale, index) => (
                   <tr key={sale.id}>
                     <td>
-                      <div className="image-placeholder">{sale.image}</div>
+                      <div className={styles["image-placeholder"]}>{sale.image}</div>
                     </td>
                     <td>{sale.name}</td>
                     <td>{sale.price}</td>

@@ -1,7 +1,7 @@
 // ProductCheckPage.js
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import '../styles/ProductCheckPage.css';
+import styles from '../styles/ProductCheckPage.module.css';
 
 const ProductCheckPage = () => {
   const { martId } = useParams();
@@ -185,8 +185,8 @@ const ProductCheckPage = () => {
   const filteredProducts = products.filter(product => product.status === selectedTab);
 
   return (
-    <div className="mart-dashboard-container">
-      <aside className="sidebar">
+    <div className={styles["mart-dashboard-container"]}>
+      <aside className={styles["sidebar"]}>
         <h3>마트 관리</h3>
         <ul>
           <li><Link to="/dashboard">메인 화면</Link></li>
@@ -196,12 +196,12 @@ const ProductCheckPage = () => {
           <li><Link to={`/mart/${martId}/sales`}>판매 내역 확인</Link></li>
         </ul>
       </aside>
-        <div className="product-check-content">
-            <div className="title-filter-action-container">
-                <div className="title-filter-group">
-                    <h2 className="section-title">등록 상품 확인</h2>
-                    <div className="filter-tabs-container">
-                        <div className="filter-tabs">
+        <div className={styles["product-check-content"]}>
+            <div className={styles["title-filter-action-container"]}>
+                <div className={styles["title-filter-group"]}>
+                    <h2 className={styles["section-title"]}>등록 상품 확인</h2>
+                    <div className={styles["filter-tabs-container"]}>
+                        <div className={styles["filter-tabs"]}>
                         {tabOptions.map(tab => (
                             <div 
                             key={tab}
@@ -214,14 +214,14 @@ const ProductCheckPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="action-buttons">
-                  <button className="btn" onClick={handleEdit}>수정</button>
-                  <button className="btn" onClick={handleRemove}>제거</button>
+                <div className={styles["action-buttons"]}>
+                  <button className={styles["btn"]} onClick={handleEdit}>수정</button>
+                  <button className={styles["btn"]} onClick={handleRemove}>제거</button>
                 </div>
           </div>
         
-        <div className="product-table-container">
-          <table className="product-table">
+        <div className={styles["product-table-container"]}>
+          <table className={styles["product-table"]}>
             <thead>
               <tr>
                 <th>
@@ -250,7 +250,7 @@ const ProductCheckPage = () => {
                       onChange={() => handleSelectProduct(product.id)}
                     />
                   </td>
-                  <td className="image-placeholder">{product.image}</td>
+                  <td className={styles["image-placeholder"]}>{product.image}</td>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
                   <td>{product.stock}</td>

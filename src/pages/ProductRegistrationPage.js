@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import '../styles/ProductRegistrationPage.css';
+import styles from '../styles/ProductRegistrationPage.module.css';
 
 const ProductRegistrationPage = () => {
   const { martId } = useParams();
@@ -49,9 +49,9 @@ const ProductRegistrationPage = () => {
   };
 
   return (
-    <div className="product-registration-page">
-    <div className="mart-dashboard-container">
-      <aside className="sidebar">
+    <div className={styles["product-registration-page"]}>
+    <div className={styles["mart-dashboard-container"]}>
+      <aside className={styles["sidebar"]}>
         <h3>마트 관리</h3>
         <ul>
           <li><Link to="/dashboard">메인 화면</Link></li>
@@ -62,13 +62,13 @@ const ProductRegistrationPage = () => {
         </ul>
       </aside>
 
-        <main className="main-content">
-          <h2 className="section-title">상품 등록</h2>
-          <form onSubmit={handleSubmit} className="product-form">
-            <div className="image-section">
-              <div className="image-upload-area" onClick={() => document.getElementById('image-upload').click()}>
-                  <div className="image-placeholder">
-                    <div className="image-icon"></div>
+        <main className={styles["main-content"]}>
+          <h2 className={styles["section-title"]}>상품 등록</h2>
+          <form onSubmit={handleSubmit} className={styles["product-form"]}>
+            <div className={styles["image-section"]}>
+              <div className={styles["image-upload-area"]} onClick={() => document.getElementById('image-upload').click()}>
+                  <div className={styles["image-placeholder"]}>
+                    <div className={styles["image-icon"]}></div>
                   </div>
                
                 <input
@@ -79,11 +79,11 @@ const ProductRegistrationPage = () => {
                   hidden
                 />
               </div>
-              <p className="image-caption">상품 이미지</p>
+              <p className={styles["image-caption"]}>상품 이미지</p>
             </div>
 
-            <div className="form-fields">
-              <div className="form-group">
+            <div className={styles["form-fields"]}>
+              <div className={styles["form-group"]}>
                 <label htmlFor="productName">상품명</label>
                 <input
                   type="text"
@@ -91,12 +91,12 @@ const ProductRegistrationPage = () => {
                   name="productName"
                   value={formData.productName}
                   onChange={handleChange}
-                  className="form-input"
+                  className={styles["form-input"]}
                   required
                 />
               </div>
 
-              <div className="form-group">
+              <div className={styles["form-group"]}>
                 <label htmlFor="price">가격</label>
                 <input
                   type="number"
@@ -104,13 +104,13 @@ const ProductRegistrationPage = () => {
                   name="price"
                   value={formData.price}
                   onChange={handleChange}
-                  className="form-input"
+                  className={styles["form-input"]}
                   required
                 />
-                <span className="unit">원</span>
+                <span className={styles["unit"]}>원</span>
               </div>
 
-              <div className="form-group">
+              <div className={styles["form-group"]}>
                 <label htmlFor="quantity">수량</label>
                 <input
                   type="number"
@@ -118,13 +118,13 @@ const ProductRegistrationPage = () => {
                   name="quantity"
                   value={formData.quantity}
                   onChange={handleChange}
-                  className="form-input"
+                  className={styles["form-input"]}
                   required
                 />
                 <span className="unit">개</span>
               </div>
 
-              <div className="form-group">
+              <div className={styles["form-group"]}>
                 <label htmlFor="expirationDate">판매 종료일</label>
                 <input
                   type="date"
@@ -132,12 +132,12 @@ const ProductRegistrationPage = () => {
                   name="expirationDate"
                   value={formData.expirationDate}
                   onChange={handleChange}
-                  className="form-input"
+                  className={styles["form-input"]}
                   required
                 />
               </div>
 
-              <div className="form-group">
+              <div className={styles["form-group"]}>
                 <label htmlFor="expirationTime">종료 시간</label>
                 <input
                   type="time"
@@ -145,27 +145,27 @@ const ProductRegistrationPage = () => {
                   name="expirationTime"
                   value={formData.expirationTime}
                   onChange={handleChange}
-                  className="form-input"
+                  className={styles["form-input"]}
                   required
                 />
               </div>
 
-              <div className="form-group">
+              <div className={styles["form-group"]}>
                 <label htmlFor="description">비고</label>
                 <textarea
                   id="description"
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
-                  className="form-textarea"
+                  className={styles["form-textarea"]}
                   rows="4"
                 ></textarea>
               </div>
             </div>
           </form>
           
-          <div className="button-container">
-            <button type="submit" className="submit-button" onClick={handleSubmit}>등록</button>
+          <div className={styles["button-container"]}>
+            <button type="submit" className={styles["submit-button"]} onClick={handleSubmit}>등록</button>
           </div>
         </main>
       </div>
