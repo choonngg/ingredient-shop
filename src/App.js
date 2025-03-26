@@ -93,6 +93,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 // 페이지 새로 만들면 이렇게 임포트 꼭 해줘야함. 여기 ReservationManagementPage 이거 임포트 수정한거에요.새로코드넣은 것
 import ReservationManagementPage from './pages/ReservationManagementPage';
+import NotificationPage from './pages/NotificationPage';  // NotificationPage 추가
 
 // 데이터 분석 관련 페이지들 import
 import DataAnalysisPage from './pages/dataAnalysis/DataAnalysisPage';
@@ -117,6 +118,8 @@ const App = () => {
         <Route path="/mart/:martId/sales" element={<CheckSalesHistoryPage />} />
         {/* 예약확인 페이지 새로한것임*/}
         <Route path="/mart/:martId/customers" element={<ReservationManagementPage />} />
+        {/* NotificationPage 경로 추가 */}
+        <Route path="/mart/:martId/notifi" element={<NotificationPage />} /> 
         {/* 데이터 분석 관련 라우트새로 한 것임임 */}
         <Route path="/mart/:martId/data" element={<DataAnalysisPage />} />
         <Route path="/mart/:martId/data/sales" element={<SalesAnalysisPage />} />
