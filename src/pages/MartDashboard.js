@@ -436,14 +436,94 @@
 
 
 
+// import React, { useState, useEffect } from 'react';
+// import { Link } from 'react-router-dom';
+// import '../App.css';
+
+// const MartDashboard = () => {
+//   const [reservations, setReservations] = useState([]);
+//   const [expiringProducts, setExpiringProducts] = useState([]);
+//   const [completedSales, setCompletedSales] = useState([]);
+
+//   useEffect(() => {
+//     // Mock data fetching
+//     setReservations([
+//       { id: 1, name: '홍길동 | 고추가루 1kg', time: '20분 내 방문 예정' },
+//       { id: 2, name: '철수 | 미용라면 5개입', time: '16분 내 방문 예정' },
+//       { id: 3, name: 'abc123 | 냉동 라비올리 500g', time: '12분 내 방문 예정' }
+//     ]);
+
+//     setExpiringProducts([
+//       { id: 1, name: '냉장 모짜렐라 치즈', time: '2시간 뒤 판매 종료 예정' },
+//       { id: 2, name: '커피 250ml', time: '2시간 뒤 판매 종료 예정' },
+//       { id: 3, name: '파스타 면 500g', time: '4시간 뒤 판매 종료 예정' }
+//     ]);
+
+//     setCompletedSales([
+//       { id: 1, name: '예약 취소됨', time: '00:00' },
+//       { id: 2, name: '파스타 면 재고 소진', time: '00:00' },
+//       { id: 3, name: '떡국떡 재고 소진', time: '00:00' }
+//     ]);
+//   }, []);
+
+//   return (
+//     <div className="mart-dashboard-container">
+//       <aside className="sidebar">
+//         <h3>마트 관리</h3>
+//         <ul>
+//           <li><Link to="/dashboard">메인 화면</Link></li>
+//           <li><Link to="/mart">나의 마트</Link></li>
+//           <li><Link to="/register">상품 등록</Link></li>
+//           <li><Link to="/sales">판매 내역 확인</Link></li>
+//         </ul>
+//       </aside>
+//       <main className="main-content">
+//         <div className="section">
+//           <h2>실시간 예약 및 구매 현황</h2>
+//           <ul>
+//             {reservations.map(res => (
+//               <li key={res.id}>{res.name} - {res.time}</li>
+//             ))}
+//           </ul>
+//         </div>
+//         <div className="section">
+//           <h2>판매 만료 예정 리스트</h2>
+//           <ul>
+//             {expiringProducts.map(product => (
+//               <li key={product.id}>{product.name} - {product.time}</li>
+//             ))}
+//           </ul>
+//         </div>
+//         <div className="section">
+//           <h2>판매 취소/완료 상품 목록</h2>
+//           <ul>
+//             {completedSales.map(sale => (
+//               <li key={sale.id}>{sale.name} - {sale.time}</li>
+//             ))}
+//           </ul>
+//         </div>
+//         <div className="section">
+//           <h2>사내 게시판</h2>
+//           <p>2월 21일까지 재고 정리</p>
+//         </div>
+//       </main>
+//     </div>
+//   );
+// };
+
+// export default MartDashboard;
+
+
+
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import '../App.css';
 
 const MartDashboard = () => {
   const [reservations, setReservations] = useState([]);
   const [expiringProducts, setExpiringProducts] = useState([]);
   const [completedSales, setCompletedSales] = useState([]);
+  const { martId } = useParams();
 
   useEffect(() => {
     // Mock data fetching
@@ -472,9 +552,12 @@ const MartDashboard = () => {
         <h3>마트 관리</h3>
         <ul>
           <li><Link to="/dashboard">메인 화면</Link></li>
-          <li><Link to="/mart">나의 마트</Link></li>
-          <li><Link to="/register">상품 등록</Link></li>
-          <li><Link to="/sales">판매 내역 확인</Link></li>
+          <li><Link to={`/mart/${martId}/info`}>나의 마트</Link></li>
+          <li><Link to={`/mart/${martId}/check`}>등록 상품 확인</Link></li>
+          <li><Link to={`/mart/${martId}/register`}>상품 등록</Link></li>
+          <li><Link to={`/mart/${martId}/sales`}>판매 내역 확인</Link></li>
+          <li><Link to={`/mart/${martId}/customers`}>예약 및 방문 고객 관리</Link></li>
+          <li><Link to={`/mart/${martId}/data`}>데이터 분석</Link></li>
         </ul>
       </aside>
       <main className="main-content">
