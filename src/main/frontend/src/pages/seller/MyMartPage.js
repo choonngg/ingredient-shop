@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-
+import Header from '../../components/seller/Header';
+import Footer from '../../components/seller/Footer';
 import styles from '../../styles/seller/MyMartPage.module.css'; // ✅ CSS 파일을 import하여 스타일 적용
 
 const MyMartPage = () => {
@@ -91,59 +92,65 @@ const MyMartPage = () => {
   }
 
   return (
-    <div className={styles["mart-dashboard-container"]}>
-      <aside className={styles["sidebar"]}>
-        <h3>마트 관리</h3>
-        <ul>
-          <li><Link to="/seller/dashboard">메인 화면</Link></li>
-          <li><Link to={`/seller/mart/${martId}/info`}>나의 마트</Link></li>
-          <li><Link to={`/seller/mart/${martId}/check`}>등록 상품 확인</Link></li>
-          <li><Link to={`/seller/mart/${martId}/register`}>상품 등록</Link></li>
-          <li><Link to={`/seller/mart/${martId}/sales`}>판매 내역 확인</Link></li>
-        </ul>
-      </aside>
+      <>
+        <Header />
+        <main>
+          <div className={styles["mart-dashboard-container"]}>
+            <aside className={styles["sidebar"]}>
+              <h3>마트 관리</h3>
+              <ul>
+                <li><Link to="/seller/dashboard">메인 화면</Link></li>
+                <li><Link to={`/seller/mart/${martId}/info`}>나의 마트</Link></li>
+                <li><Link to={`/seller/mart/${martId}/check`}>등록 상품 확인</Link></li>
+                <li><Link to={`/seller/mart/${martId}/register`}>상품 등록</Link></li>
+                <li><Link to={`/seller/mart/${martId}/sales`}>판매 내역 확인</Link></li>
+              </ul>
+            </aside>
 
 
-      <div className={styles["mymart-container"]}>
-      <h2>{martInfo.name}</h2>
-      <div className={styles["mart-info"]}>
-        <div className={styles["map-section"]}>지도</div>
-        <div className={styles["details"]}>
-          <p><strong>주소:</strong> {martInfo.address}</p>
-          <p><strong>연락처:</strong> {martInfo.contact}</p>
-          <p><strong>운영시간:</strong> {martInfo.hours}</p>
-        </div>
-      </div>
-      </div>
+            <div className={styles["mymart-container"]}>
+              <h2>{martInfo.name}</h2>
+              <div className={styles["mart-info"]}>
+                <div className={styles["map-section"]}>지도</div>
+                <div className={styles["details"]}>
+                  <p><strong>주소:</strong> {martInfo.address}</p>
+                  <p><strong>연락처:</strong> {martInfo.contact}</p>
+                  <p><strong>운영시간:</strong> {martInfo.hours}</p>
+                </div>
+              </div>
+            </div>
 
-      <div className={styles["ratings-reviews-container"]}>
-        <div className={styles["ratings"]}>
-        <div className={styles["rating-box"]}>
-          <h3>전체 평점</h3>
-          <p>⭐ {martInfo.rating}점</p>
-        </div>
-        <div className={styles["rating-box"]}>
-          <h3>최근 3개월 평점 평균</h3>
-          <p>⭐ {martInfo.recentRating}점</p>
-        </div>
-        </div>
+            <div className={styles["ratings-reviews-container"]}>
+              <div className={styles["ratings"]}>
+                <div className={styles["rating-box"]}>
+                  <h3>전체 평점</h3>
+                  <p>⭐ {martInfo.rating}점</p>
+                </div>
+                <div className={styles["rating-box"]}>
+                  <h3>최근 3개월 평점 평균</h3>
+                  <p>⭐ {martInfo.recentRating}점</p>
+                </div>
+              </div>
 
-        <div className={styles["reviews"]}>
-        <h3>상품 리뷰</h3>
-        {martInfo.reviews.map((review, index) => (
-          <div key={index} className={styles["review"]}>
-            <p><strong>{review.user}</strong> | ⭐ {review.stars} | {review.time}</p>
-            <p>{review.text}</p>
-            <div className={styles["review-images"]}>
-              {review.images.map((img, idx) => (
-                <div key={idx} className={styles["image-box"]}>이미지</div>
-              ))}
+              <div className={styles["reviews"]}>
+                <h3>상품 리뷰</h3>
+                {martInfo.reviews.map((review, index) => (
+                    <div key={index} className={styles["review"]}>
+                      <p><strong>{review.user}</strong> | ⭐ {review.stars} | {review.time}</p>
+                      <p>{review.text}</p>
+                      <div className={styles["review-images"]}>
+                        {review.images.map((img, idx) => (
+                            <div key={idx} className={styles["image-box"]}>이미지</div>
+                        ))}
+                      </div>
+                    </div>
+                ))}
+              </div>
             </div>
           </div>
-        ))}
-        </div>
-      </div>
-    </div>
+        </main>
+        <Footer />
+      </>
   );
 };
 

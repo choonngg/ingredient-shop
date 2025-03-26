@@ -88,9 +88,9 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import appStyles from'../../styles/seller/App.module.css';
 import Header from '../../components/seller/Header';
 import Footer from '../../components/seller/Footer';
+import styles from '../../styles/seller/App.module.css';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -109,26 +109,28 @@ const LoginPage = () => {
   };
 
   return (
-    <>
-    <Header />
-    <div className={appStyles["login-container"]}>
-      <h2>판매자 로그인</h2>
-      <input
-        type="text"
-        placeholder="아이디"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="비밀번호"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>로그인</button>
-    </div>
-    <Footer />
-    </>
+      <>
+          <Header />
+          <main>
+              <div className={styles["login-container"]}>
+                  <h2>판매자 로그인</h2>
+                  <input
+                      type="text"
+                      placeholder="아이디"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                  />
+                  <input
+                      type="password"
+                      placeholder="비밀번호"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <button onClick={handleLogin}>로그인</button>
+              </div>
+          </main>
+          <Footer />
+      </>
   );
 };
 

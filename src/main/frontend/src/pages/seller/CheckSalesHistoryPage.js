@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import Header from '../../components/seller/Header';
+import Footer from '../../components/seller/Footer';
 import styles from '../../styles/seller/CheckSalesHistoryPage.module.css';
 
 const CheckSalesHistoryPage = () => {
@@ -117,53 +119,59 @@ const CheckSalesHistoryPage = () => {
   };
 
   return (
-    <div className={styles["mart-dashboard-container"]}>
-      <aside className={styles["sidebar"]}>
-        <h3>마트 관리</h3>
-        <ul>
-          <li><Link to="/seller/dashboard">메인 화면</Link></li>
-          <li><Link to={`/seller/mart/${martId}/info`}>나의 마트</Link></li>
-          <li><Link to={`/seller/mart/${martId}/check`}>등록 상품 확인</Link></li>
-          <li><Link to={`/seller/mart/${martId}/register`}>상품 등록</Link></li>
-          <li><Link to={`/seller/mart/${martId}/sales`}>판매 내역 확인</Link></li>
-        </ul>
-      </aside>
-      <main className={styles["main-content"]}>
-        <div className={styles["sales-history-container"]}>
-          <h2>판매 내역 확인</h2>
-          <div className={styles["table-container"]}>
-            <table className={styles["sales-table"]}>
-              <thead>
-                <tr>
-                  <th>상품이미지</th>
-                  <th>상품명</th>
-                  <th>가격</th>
-                  <th>수량</th>
-                  <th>구매자</th>
-                  <th>판매한 시간</th>
-                  <th>총 판매액</th>
-                </tr>
-              </thead>
-              <tbody>
-                {salesData.map((sale, index) => (
-                  <tr key={sale.id}>
-                    <td>
-                      <div className={styles["image-placeholder"]}>{sale.image}</div>
-                    </td>
-                    <td>{sale.name}</td>
-                    <td>{sale.price}</td>
-                    <td>{sale.quantity}</td>
-                    <td>{sale.buyer}</td>
-                    <td>{sale.time}</td>
-                    <td>{sale.total}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      <>
+        <Header />
+        <main>
+          <div className={styles["mart-dashboard-container"]}>
+            <aside className={styles["sidebar"]}>
+              <h3>마트 관리</h3>
+              <ul>
+                <li><Link to="/seller/dashboard">메인 화면</Link></li>
+                <li><Link to={`/seller/mart/${martId}/info`}>나의 마트</Link></li>
+                <li><Link to={`/seller/mart/${martId}/check`}>등록 상품 확인</Link></li>
+                <li><Link to={`/seller/mart/${martId}/register`}>상품 등록</Link></li>
+                <li><Link to={`/seller/mart/${martId}/sales`}>판매 내역 확인</Link></li>
+              </ul>
+            </aside>
+            <main className={styles["main-content"]}>
+              <div className={styles["sales-history-container"]}>
+                <h2>판매 내역 확인</h2>
+                <div className={styles["table-container"]}>
+                  <table className={styles["sales-table"]}>
+                    <thead>
+                    <tr>
+                      <th>상품이미지</th>
+                      <th>상품명</th>
+                      <th>가격</th>
+                      <th>수량</th>
+                      <th>구매자</th>
+                      <th>판매한 시간</th>
+                      <th>총 판매액</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {salesData.map((sale, index) => (
+                        <tr key={sale.id}>
+                          <td>
+                            <div className={styles["image-placeholder"]}>{sale.image}</div>
+                          </td>
+                          <td>{sale.name}</td>
+                          <td>{sale.price}</td>
+                          <td>{sale.quantity}</td>
+                          <td>{sale.buyer}</td>
+                          <td>{sale.time}</td>
+                          <td>{sale.total}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </main>
           </div>
-        </div>
-      </main>
-    </div>
+        </main>
+        <Footer />
+      </>
   );
 };
 
