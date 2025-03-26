@@ -399,6 +399,8 @@ const ReservationManagementPage = () => {
           <li><Link to={`/mart/${martId}/register`}>상품 등록</Link></li>
           <li><Link to={`/mart/${martId}/sales`}>판매 내역 확인</Link></li>
           <li><Link to={`/mart/${martId}/customers`}>예약 및 방문 고객 관리</Link></li>
+          <li><Link to={`/mart/${martId}/data`}>데이터 분석</Link></li>
+          <li><Link to={`/mart/${martId}/notifi`}>공지 및 알림 관리</Link></li>
         </ul>
       </aside>
 
