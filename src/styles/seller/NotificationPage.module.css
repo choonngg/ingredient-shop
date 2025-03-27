@@ -1,0 +1,145 @@
+.container {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    padding: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  
+  .leftColumn {
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .rightColumn {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .section, .sideSection {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 500 !important; /* 고정 높이 설정 */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sectionHeader, .sideSectionHeader {
+    background-color: #f5f5f5;
+    padding: 12px 0;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0; /* 헤더 크기 고정 */
+  }
+  
+  /* 내용 영역에 스크롤 추가 */
+  .section > div:not(.sectionHeader),
+  .sideSection > div:not(.sideSectionHeader) {
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+  
+  .notificationItem {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .notificationItem, .systemNotice {
+    display: flex;
+    height: 70px;
+    border-bottom: 1px solid #e0e0e0;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+  }
+  
+  .notificationItem:last-child {
+    border-bottom: none;
+  }
+  
+  .notificationItem p {
+    margin: 0;
+    font-size: 15px;
+  }
+  .emptySpace {
+    flex-grow: 1;
+    min-height: 100px;
+  }
+  
+  .systemNotice {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .systemNotice p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .emptySpace {
+    height: none;
+  }
+  
+  .actionButton {
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 25px 0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+  }
+  
+  .actionButton:hover {
+    background-color: #e8e8e8;
+  }
+  
+  .actionButton:active {
+    background-color: #dcdcdc;
+  }
+  
+  .mart-dashboard-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 200px;
+    min-width: 200px;
+    background-color: #1e3a8a;
+    color: white;
+    padding: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar a:hover {
+    background-color: #3b82f6;
+  }

@@ -1,0 +1,82 @@
+/* 새롭게 개선한 메인 대시보드 스타일 */
+
+/* 기본 전역 스타일 */
+.body {
+    font-family: 'Roboto', sans-serif;  /* 좀 더 모던한 폰트 적용 */
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+/* 메인 대시보드 전체 컨테이너 */
+.dashboard-container {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+/* 제목 스타일 */
+.dashboard-container h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* 마트 리스트 그리드 레이아웃 */
+.mart-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 최소 250px, 가능한 공간 꽉 채움 */
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* 각 마트 아이템 스타일 */
+.mart-item {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 마우스 오버 시 효과 */
+.mart-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 마트 아이템 내 제목 스타일 */
+.mart-item h3 {
+    margin: 0;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* 예시: 마트 아이템 내 설명 텍스트 (필요 시 추가) */
+.mart-item p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* 헤더 스타일 (Header 컴포넌트에 적용) */
+.header {
+    background-color: #1e3a8a;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* 푸터 스타일 (Footer 컴포넌트에 적용) */
+.footer {
+    background-color: #1e3a8a;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

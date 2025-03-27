@@ -1,0 +1,136 @@
+/* Cart.module.css */
+.cartWrapper {
+    width: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.cartContainer {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.cartTitle {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mobileSelectOptions {
+    display: flex;
+    gap: 10px;
+}
+
+.cartActions {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    gap: 15px;
+}
+
+.desktopSelectOptions {
+    display: none;
+}
+
+.selectButton {
+    border: 1px solid #ddd;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.selectButton.active {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+}
+
+.cartSummary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.totalAmount {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.purchaseButton {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.purchaseButton:hover {
+    background-color: #333;
+}
+
+.cartItemsContainer {
+    width: 100%;
+}
+
+.cartItemsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* 모바일 환경에서는 타이틀 영역에 버튼이 표시되도록 함 */
+@media screen and (max-width: 767px) {
+    .mobileSelectOptions {
+        display: flex;
+    }
+
+    .desktopSelectOptions {
+        display: none;
+    }
+
+    .selectButton {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
+
+/* 768px 이상의 화면(데스크톱)에서는 2열로 표시 및 원래 레이아웃으로 복원 */
+@media screen and (min-width: 768px) {
+    .cartItemsGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cartActions {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .cartSummary {
+        width: auto;
+        gap: 20px;
+    }
+
+    .mobileSelectOptions {
+        display: none;
+    }
+
+    .desktopSelectOptions {
+        display: flex;
+        gap: 10px;
+    }
+}

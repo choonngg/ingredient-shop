@@ -1,0 +1,272 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+/* body {
+    padding: 20px;
+    background-color: #fafafa;
+} */
+.container {
+    /* position: relative; */
+    position: static; /* relative 제거 */
+    /* top: 10px; 원래 위치에서 10px 아래로 이동 */
+    margin: 10px auto 0; /* top: 10px 대신 margin으로 대체 */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    background-color: #fff;
+    padding: 20px;
+    /* border-radius: 10px;
+    box-shadow: 0 2px 10px #f0f0f0; */
+    z-index: 1; /* 낮은 값으로 설정 */
+}
+.left-area {
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    flex: 1;
+}
+.right-area {
+    flex: 1;
+}
+.product-image {
+    width: 600px;
+    height: 400px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.divider {
+    border: 0;
+    height: 2px;
+    background-color: #d9d9d9;
+    margin: 20px 0;
+}
+.store-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+.store-info {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 세로 정렬 */
+}
+.store-image {
+    width: 80px;
+    height: 80px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    object-fit: cover;
+    
+}
+.follow-btn {
+    display: block;
+    width: 80px;
+    background-color: #4a76fd;
+    color: white;
+    border: none;
+    padding: 8px 0;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.store-detail {
+    flex: 1;
+    justify-content: center;
+}
+.store-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.store-stats {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+.store-address-header {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+.store-address-title {
+    font-size: 14px;
+    margin-right: 10px;
+}
+.store-location-btn {
+    background-color: #4a76fd;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.store-address {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+.product-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.product-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.product-price {
+    font-size: 22px;
+    font-weight: bold;
+}
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.product-buy-btn {
+    background-color: #ff4e50;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.product-cart-btn {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* 레이어 팝업 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 700px;
+}
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.map-container {
+    width: 100%;
+    height: 400px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin-top: 15px;
+    position: relative;
+}
+.map-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #888;
+}
+
+/* 모바일 환경에 대한 미디어 쿼리 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px;
+    }
+    .product-image {
+        width: 100%; /* 전체 너비로 변경 */
+        max-width: 400px; /* 최대 너비 설정 - 250302 추가 */
+        height: 300px; /* 모바일에서는 높이 조절 */
+    }
+    .product-info {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px; /* 요소 간 간격 */
+    }
+    .product-name {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+    .product-price {
+        font-size: 18px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    .button-group {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+    .product-buy-btn, .product-cart-btn {
+        width: 48%;
+        padding: 10px 5px;
+        font-size: 14px;
+    }
+    
+    /* 매장 정보 스타일 수정 */
+    .store-info {
+        display: flex;
+        flex-direction: row;
+        gap: 20px; /* 매장 사진과 상세 정보 사이 간격 증가 */
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    
+    /* 매장 이미지 컨테이너 수정 */
+    .store-info > div:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* 매장 사진 중앙 정렬 */
+        text-align: center;
+    }
+    .store-image {
+        width: 80px; /* 원래 크기인 80px로 유지 */
+        height: 80px;
+        min-width: 80px; /* flex 축소 방지 */
+    }
+    .store-detail {
+        flex: 1;
+        min-width: 0; /* flex 항목이 너무 작아지는 것 방지 */
+    }
+    .store-address-header {
+        flex-wrap: wrap; /* 필요시 줄바꿈 허용 */
+    }
+
+    .modal-content {
+        width: calc(100% - 50px); /* 양쪽 25px 여백 = 총 50px */
+        margin: 50% auto; /* 상단 여백 유지 */
+        border-radius: 8px; /* 선택적으로 둥근 모서리 조정 */
+      }
+    .map-container {
+        height: 300px;
+    }
+}

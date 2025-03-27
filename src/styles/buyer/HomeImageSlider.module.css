@@ -1,0 +1,124 @@
+/* buyer 홈페이지 헤더 밑 이미지 슬라이드 */
+
+.image-section {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center; /* 가운데 정렬 */
+    padding: 5px 0; /* 상하 여백 추가 */
+}
+.slider-container {
+    width: 99%;
+    position: relative;
+    overflow: hidden; /* 넘치는 부분 가리기 */
+    line-height: 0;
+    font-size: 0;
+    border-radius: 16px; /* 둥근 모서리 추가 */
+}
+.slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+/* 각 슬라이드 */
+.slide {
+    flex: 0 0 100%; /* 너비를 100%로 고정 */
+    min-width: 100%; /* IE11 지원 */
+    position: relative;
+}
+.slider-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+/* 인디케이터 */
+.slider-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+    line-height: normal;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    padding: 8px 15px;
+}
+.indicator {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+.indicator.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+.nav-button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+}
+/* 화살표 네비게이션 추가 */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    transform: translateY(-50%);
+    z-index: 20;
+}
+
+
+@media (max-width: 500px) {
+    .nav-button {
+        width: 25px;
+        height: 25px;
+    }
+}
+/* 데스크톱에서 슬라이더 컨테이너 너비 제한 */
+@media (min-width: 1024px) {
+    .image-section {
+        padding: 10px 0; /* 데스크톱에서는 상하 여백 더 크게 */
+    }
+    .slider-container {
+        max-width: 1000px; /* 데스크톱에서 최대 너비 설정 */
+        height: 300px; /* 데스크톱에서 높이 조정 */
+        margin: 0 auto; /* 가운데 정렬 */
+    }
+    .slide {
+        height: 300px; /* 슬라이드 높이도 동일하게 설정 */
+        display: flex;
+        align-items: center;
+    }
+    .slider-image {
+        width: 100%;
+        height: 100%; /* 높이 100%로 설정 */
+        object-fit: cover; /* 비율 유지하면서 영역 채우기 */
+        object-position: center; /* 이미지 중앙 정렬 */
+    }
+}
