@@ -5,6 +5,56 @@
     margin: 0 auto;
 }
 
+/* 위치 정보 없을때 뜨는거 */
+.location-section {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.location-denied-message {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    line-height: 1.6;
+    font-size: 16px;
+    color: #333;
+    margin: 20px 0;
+}
+.location-denied-message br {
+    margin-bottom: 12px;
+    content: "";
+    display: block;
+}
+.enable-location-button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.enable-location-button:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+.enable-location-button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.enable-location-button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
 .section-title {
     font-size: 24px;
     font-weight: bold;
